@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Book;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class RatingFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'rating' => fake()->randomFloat(1, 1.0, 10.0),
+            'book_id' => fake()->numberBetween(1, 10000)
         ];
     }
 }

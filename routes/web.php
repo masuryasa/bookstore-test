@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\RatingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/* Index / List Books */
+Route::get('/', [BookController::class, 'index']);
+
+/* Top 10 Famous Authors */
+Route::get('/authors', [BookController::class, 'author']);
+
+/* Give Rating */
+Route::get('/give-rating', [RatingController::class, 'index']);
+Route::get('/get-books', [RatingController::class, 'getBooks']);
+Route::post('/post-rating', [RatingController::class, 'postRating']);
